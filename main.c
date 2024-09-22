@@ -55,3 +55,11 @@ void Portf_interrupt_handler(void)
     }
 }
 
+int main(void)                               // MAIN FUNCTION
+{
+    GPIO_PORT_F_init();                      // GPIO INITIALISATION FUNCTION
+    systick_timer();                       // SYSTICK SETUP
+    while (1)
+    {                                        // DO NOTHING
+    }
+}
