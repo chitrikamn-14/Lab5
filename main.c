@@ -39,4 +39,19 @@ void systick_timer()                           // DEFINING systick_timer FUNCTIO
            NVIC_ST_CTRL_R = 0x0;
 }
 
+void Portf_interrupt_handler(void)
+{
+    systick_timer();
+    if (GPIO_PORTF_RIS_R & 0x10)
+    {
+    GPIO_PORTF_DATA_R ^= 0x02;
+    GPIO_PORTF_ICR_R = 0x10;
+    }
+
+    if (GPIO_PORTF_RIS_R & 0x01)
+    {
+    GPIO_PORTF_DATA_R ^= 0x02;
+    GPIO_PORTF_ICR_R = 0x01;
+    }
+}
 
