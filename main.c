@@ -20,3 +20,10 @@ void GPIO_PORT_F_init(void)
     GPIO_PORTF_IEV_R = 0x00;
     GPIO_PORTF_IM_R  |= 0x11;
 }
+
+void systickInit(void)
+{
+    NVIC_ST_CURRENT_R = 0;
+    NVIC_ST_CTRL_R = 0x05;
+    NVIC_ST_RELOAD_R = 4000000;
+}
