@@ -27,3 +27,16 @@ void systickInit(void)
     NVIC_ST_CTRL_R = 0x05;
     NVIC_ST_RELOAD_R = 4000000;
 }
+
+void systick_timer()                           // DEFINING systick_timer FUNCTION
+{
+    systickInit();
+           NVIC_ST_RELOAD_R = 4000000;
+           while((NVIC_ST_CTRL_R & 0x10000)==0)
+                    {
+
+                    }
+           NVIC_ST_CTRL_R = 0x0;
+}
+
+
