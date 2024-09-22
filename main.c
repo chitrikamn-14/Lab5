@@ -13,3 +13,10 @@ void GPIO_PORT_F_init(void)
     GPIO_PORTF_DEN_R  = 0x1F;                // SET PORTF DIGITAL ENABLE
     GPIO_PORTF_DIR_R  = 0x0E;                // SET PF0, PF4 as input and PF1, PF2 and PF3 as output
     GPIO_PORTF_PUR_R  = 0x11;                // PORTF PF0 and PF4 IS PULLED UP
+
+    NVIC_EN0_R |= 1 << 30;
+    GPIO_PORTF_IS_R  = 0x00;
+    GPIO_PORTF_IBE_R = 0x00;
+    GPIO_PORTF_IEV_R = 0x00;
+    GPIO_PORTF_IM_R  |= 0x11;
+}
